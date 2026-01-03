@@ -1,0 +1,41 @@
+.cart {
+  margin-top: 84px;
+  padding: 22px 26px;
+  display: flex;
+
+  width: 100%;
+  gap: 32px;
+}
+
+.items {
+  flex: 55%;
+}
+
+.item {
+  height: 130px;
+  margin: 12px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: oklch(98.7% 0.022 95.277);
+}
+.detail {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.img img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+.count {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.total {
+  flex: 40%;
+  height: max-content;
+}
