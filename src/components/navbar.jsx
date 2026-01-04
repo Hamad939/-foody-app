@@ -9,6 +9,7 @@ const Navbar = () => {
   const { cart, setCart } = useContext(cartData);
   const [userName, setUserName] = useContext(loginData);
   const [emptyCartAlert, setEmptyCartAlert] = useState(false);
+  const [logOutAlert, setLogOutAlert] = useState(false);
 
   const emptyCartHandler = () => {
     if (!cart.length > 0) {
@@ -35,7 +36,7 @@ const Navbar = () => {
   };
   const handleClick = () => {
     if (userName) {
-      logout();
+      setLogOutAlert(true);
     } else {
       login();
     }
@@ -79,8 +80,32 @@ const Navbar = () => {
 
       {emptyCartAlert && (
         <div className="flex justify-center">
-          <div className="fixed top-3 felx justify-center items-center z-50 bg-red-500 text-white p-3">
+          <div className="fixed top-3 flex justify-center items-center z-50 bg-red-500 text-white p-3">
             <p>Your Cart is Empty</p>
+          </div>
+        </div>
+      )}
+      {logOutAlert && (
+        <div className="flex justify-center  ">
+          <div className="fixed top-20 right-4 p-2 h-32 bg-red-600 flex flex-col gap-2 justify-center items-center  ">
+            <p className="text-white">Are you sure you want to logOut</p>
+            <button
+              className="w-[80%] bg-white text-red-500 hover:cursor-pointer"
+              onClick={() => {
+                logout();
+                setLogOutAlert(false);
+              }}
+            >
+              Yes
+            </button>
+            <button
+              className="w-[80%] bg-white text-red-500 hover:cursor-pointer"
+              onClick={() => {
+                setLogOutAlert(false);
+              }}
+            >
+              No
+            </button>
           </div>
         </div>
       )}

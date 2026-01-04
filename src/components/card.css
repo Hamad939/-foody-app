@@ -40,3 +40,10 @@
   width: 100%;
   height: 50%;
 }
+
+@media screen and (min-width: 340px) and (max-width: 380) {
+  .content p {
+    overflow: hidden;
+    line-clamp: 2;
+  }
+}
