@@ -10,10 +10,10 @@ import { Routes, Route, useLocation } from "react-router-dom";
 function App() {
   const location = useLocation();
   const hideNavFooter = location.pathname == "/login";
-  const showError = location.pathname == "*";
+  const showError = !["/", "/login", "/addToCart"].includes(location.pathname);
   return (
     <div className=" min-h-screen flex flex-col">
-      {!hideNavFooter || (!showError && <Navbar />)}
+      {!hideNavFooter && !showError && <Navbar />}
       <div className="main flex-1">
         <Routes>
           <Route
@@ -28,10 +28,10 @@ function App() {
           ></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/addToCart" element={<AddToCart />}></Route>
-          <Route path="*" element={<Error />}></Route>
+          <Route path="/*" element={<Error />}></Route>
         </Routes>
       </div>
-      {!hideNavFooter || (!showError && <Footer />)}
+      {!hideNavFooter && !showError && <Footer />}
     </div>
   );
 }
