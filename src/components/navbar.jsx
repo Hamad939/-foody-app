@@ -16,7 +16,7 @@ const Navbar = () => {
       setEmptyCartAlert(true);
       setTimeout(() => {
         setEmptyCartAlert(false);
-      }, 3000);
+      }, 2000);
     }
   };
 
@@ -32,7 +32,6 @@ const Navbar = () => {
     setUserName("");
     localStorage.removeItem("Name");
     setCart([]);
-    console.log(cart);
   };
   const handleClick = () => {
     if (userName) {
@@ -80,14 +79,14 @@ const Navbar = () => {
 
       {emptyCartAlert && (
         <div className="flex justify-center">
-          <div className="fixed top-3 flex justify-center items-center z-50 bg-red-500 text-white p-3">
+          <div className="fixed top-3 w-[80%] lg:w-[40%] flex justify-center items-center z-50 bg-red-500 text-white p-3">
             <p>Your Cart is Empty</p>
           </div>
         </div>
       )}
       {logOutAlert && (
         <div className="flex justify-center  ">
-          <div className="fixed top-20 right-4 p-2 h-32 bg-red-600 flex flex-col gap-2 justify-center items-center  ">
+          <div className="fixed top-20 right-4 p-2 z-50 h-32 bg-red-600 flex flex-col gap-2 justify-center items-center  ">
             <p className="text-white">Are you sure you want to logOut</p>
             <button
               className="w-[80%] bg-white text-red-500 hover:cursor-pointer"

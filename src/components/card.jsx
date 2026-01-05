@@ -16,7 +16,7 @@ const Cart = () => {
       setShowLoginAlert(true);
       setTimeout(() => {
         setShowLoginAlert(false);
-      }, 3000);
+      }, 2000);
     } else {
       addToCart(food);
     }
@@ -65,7 +65,7 @@ const Cart = () => {
       <div className="flex justify-center ">
         {" "}
         {popUp.visible && (
-          <div className="flex items-center  p-2 gap-3 text-white  justify-center  fixed top-3.5   z-50  bg-green-500 w-[40%] sm:h-20 sm:w-[15%] ">
+          <div className="flex items-center w-fit lg:w-fit  p-2 gap-3 text-white  justify-center  fixed top-3.5   z-50  bg-green-500  sm:h-20 sm:w-[15%] ">
             <span className="rounded-full min-w-8 h-8 bg-white flex justify-center items-center">
               <CheckIcon className="w-6 h-6 text-green-500" />
             </span>{" "}
@@ -73,7 +73,7 @@ const Cart = () => {
           </div>
         )}
         {showLoginAlert && (
-          <div className="flex items-center  p-2 gap-1 text-white  justify-center  fixed top-3   z-50  bg-red-500 h-20 w-[30%] sm:h-20 sm:w-[15%]  ">
+          <div className="flex items-center  p-2 gap-1 w-fit h-20 text-white  justify-center  fixed top-3   z-50  bg-red-500     ">
             <span className="rounded-full min-w-8 h-8 bg-white flex justify-center items-center ">
               <XMarkIcon className="w-6 h-6 text-red-500 " />
             </span>{" "}
