@@ -22,10 +22,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const login = () => {
-    const cartData = localStorage.getItem("cartData");
-    if (cartData) {
-      setCart(JSON.parse(cartData));
-    }
     navigate("/login");
   };
   const logout = () => {
@@ -53,8 +49,12 @@ const Navbar = () => {
           >
             <span className="hidden sm:block md:block lg:block">Cart</span>{" "}
             {<ShoppingCartIcon className=" w-7 h-7 sm:w-5 sm:h-5" />}
-            {userName && cart.length >= 0 && (
-              <span className="    absolute top-4.5 right-21 sm:top-4.5 sm:right-33.5 border-2 border-amber-50 flex justify-center    bg-red-600 text-white rounded-[50%] w-5 h-5 text-white-500 text-sm">
+            {cart.length >= 0 && (
+              <span
+                className={` ${
+                  userName ? "block" : "hidden lg:block"
+                }    absolute top-4.5 right-22 sm:top-4.5 sm:right-33.5 border-2 border-amber-50      bg-red-600 text-white rounded-[50%] w-5 h-5 text-white-500 text-sm`}
+              >
                 {cart.length}
               </span>
             )}

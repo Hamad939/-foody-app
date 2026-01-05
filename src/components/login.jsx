@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { loginData } from "./authLogin";
 import { useNavigate } from "react-router-dom";
+import { cartData } from "./cartContext";
+
 const Login = () => {
+  const { cart, setCart } = useContext(cartData);
   const navigate = useNavigate();
   const [userName, setUserName] = useContext(loginData);
   function formHandler(e) {
     e.preventDefault();
     setUserName(name);
     localStorage.setItem("Name", name);
+    const cartData = localStorage.getItem("cartData");
+    cartData && setCart(JSON.parse(cartData));
+
     setName("");
     setPassword("");
     navigate("/");
